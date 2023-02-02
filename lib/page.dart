@@ -39,7 +39,12 @@ class PortfolioPage extends StatelessWidget {
 Job job = Job(
     titulo: "PJe2x Mobile",
     texto: "O pje2x Mobile é um aplicativo",
-    capaPath: "assets/imagens/fundo_header.png");
+    capaPath: "assets/imagens/fundo_header.png",
+    assets: [
+      "assets/imagens/fundo_header.png",
+      "assets/imagens/fundo_header.png",
+      "assets/imagens/fundo_header.png"
+    ]);
 
 Job job1 = Job(
     titulo: "PJe2x Mobile 1",

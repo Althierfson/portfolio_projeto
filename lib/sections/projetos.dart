@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
+import 'package:portfolio_projeto/projeto_page.dart';
 
 class Projetos extends StatefulWidget {
   final String titulo;
@@ -81,6 +82,11 @@ class _ProjetosState extends State<Projetos> {
     return GestureDetector(
         onTap: () {
           print("Projeto selecionado: ${jobs[selecionado].titulo}");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProjetoPage(projeto: jobs[selecionado]),
+              ));
         },
         child: Container(
           width: 1920 * 0.20,
