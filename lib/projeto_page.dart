@@ -45,6 +45,7 @@ class ProjetoPage extends StatelessWidget {
                     child: Text(
                       projeto.texto,
                       textAlign: TextAlign.left,
+                      style: const TextStyle(fontSize: 20),
                     ),
                   ),
                   SizedBox(
@@ -55,10 +56,11 @@ class ProjetoPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return Container(
                           width: MediaQuery.of(context).size.width * 0.30,
-                          height: MediaQuery.of(context).size.height * 0.20,
+                          height: MediaQuery.of(context).size.height * 0.50,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(projeto.capaPath),
+                                  image: AssetImage(projeto.assets[index]),
+                                  // ! Adciona uma função para aumentar a imagem quando ela for clicada
                                   fit: BoxFit.contain)),
                         );
                       },

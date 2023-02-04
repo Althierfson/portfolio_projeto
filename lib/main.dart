@@ -5,7 +5,7 @@ void main() {
   runApp(MaterialApp(
     title: "Portfolio Althierfson",
     theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-    home: const PortfolioPage(),
+    home: PortfolioPage(),
     debugShowCheckedModeBanner: false,
   ));
 }
