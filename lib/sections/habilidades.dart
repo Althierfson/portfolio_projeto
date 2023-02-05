@@ -22,10 +22,10 @@ class _HabilidadesState extends State<Habilidades> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 100, bottom: 100),
+      //padding: const EdgeInsets.only(top: 100, bottom: 100),
       width: MediaQuery.of(context).size.width,
       color: const Color(0xFF77C159),
-      child: Column(children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Text(
           "Habilidades",
           style: TextStyle(

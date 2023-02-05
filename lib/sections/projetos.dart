@@ -26,10 +26,10 @@ class _ProjetosState extends State<Projetos> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 100, bottom: 100),
+      //padding: const EdgeInsets.only(top: 100, bottom: 100),
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(color: Color(0xFF77C159)),
-      child: Column(children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text(
           widget.titulo,
           style: const TextStyle(

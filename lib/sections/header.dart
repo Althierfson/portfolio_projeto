@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_projeto/shapes/custom_shape.dart';
 
-class Header extends StatelessWidget {
-  const Header({super.key});
+class Header extends StatefulWidget {
+  final Function() onContato;
+  const Header({super.key, required this.onContato});
 
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 100, bottom: 100),
       decoration: BoxDecoration(
           color: Colors.black,
           image: DecorationImage(
@@ -26,7 +31,11 @@ class Header extends StatelessWidget {
             child: Container(
               height: 200,
               width: 200,
-              child: Placeholder(),
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage("assets/imagens/perfil_2.png"),
+                      fit: BoxFit.contain)),
             ),
           ),
           const SizedBox(
@@ -34,6 +43,7 @@ class Header extends StatelessWidget {
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 "Olá! Eu sou\nAlthierfson Tullio",
@@ -57,7 +67,7 @@ class Header extends StatelessWidget {
                 height: 30,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: widget.onContato,
                 child: Container(
                   padding: const EdgeInsets.only(
                       left: 20, right: 20, top: 10, bottom: 10),
@@ -88,9 +98,11 @@ class Header extends StatelessWidget {
                 child: Container(
                   width: 212,
                   height: 446,
-                  child: const Placeholder(),
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/imagens/capa_phone.png"))),
                 ),
-              )
+              ),
             ],
           ),
         ],
