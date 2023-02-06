@@ -1,3 +1,5 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -20,14 +22,15 @@ class Contatos extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   print("Instagram Clicado");
+                  html.window.open(
+                      "https://www.instagram.com/althierfson/", "instagram");
                 },
                 child: Container(
                   width: 200,
                   height: 200,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image:
-                              AssetImage("assets/imagens/fundo_header.png"))),
+                          image: AssetImage("assets/imagens/Instagram.png"))),
                 ),
               ),
               const SizedBox(
@@ -36,14 +39,15 @@ class Contatos extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   print("Likedin Clicado");
+                  html.window.open(
+                      "https://www.linkedin.com/in/althierfson/", "linkedin");
                 },
                 child: Container(
                   width: 200,
                   height: 200,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image:
-                              AssetImage("assets/imagens/fundo_header.png"))),
+                          image: AssetImage("assets/imagens/linkedin.png"))),
                 ),
               ),
               const SizedBox(
@@ -52,14 +56,14 @@ class Contatos extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   print("gitHub Clicado");
+                  html.window.open("https://github.com/althierfson", "github");
                 },
                 child: Container(
                   width: 200,
                   height: 200,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image:
-                              AssetImage("assets/imagens/fundo_header.png"))),
+                          image: AssetImage("assets/imagens/github.png"))),
                 ),
               )
             ],

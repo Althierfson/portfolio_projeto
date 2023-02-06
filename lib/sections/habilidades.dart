@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
 
 class Habilidades extends StatefulWidget {
-  const Habilidades({super.key});
+  final List<Job> habilidades;
+  const Habilidades({super.key, required this.habilidades});
 
   @override
   State<Habilidades> createState() => _HabilidadesState();
@@ -14,7 +15,7 @@ class _HabilidadesState extends State<Habilidades> {
 
   @override
   void initState() {
-    habilidades = [job, job1, job2];
+    habilidades = widget.habilidades;
     super.initState();
   }
 
@@ -99,27 +100,16 @@ class _HabilidadesState extends State<Habilidades> {
           const SizedBox(
             height: 20,
           ),
-          Text(
-            habilidades[selecionado].texto,
-            style: const TextStyle(fontSize: 20),
+          SizedBox(
+            width: 400,
+            child: Text(
+              habilidades[selecionado].texto,
+              style: const TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
           )
         ],
       ),
     );
   }
 }
-
-Job job = Job(
-    titulo: "PJe2x Mobile",
-    texto: "O pje2x Mobile é um aplicativo",
-    capaPath: "assets/imagens/fundo_header.png");
-
-Job job1 = Job(
-    titulo: "PJe2x Mobile 1",
-    texto: "O pje2x Mobile é um aplicativo 1",
-    capaPath: "assets/imagens/fundo_header.png");
-
-Job job2 = Job(
-    titulo: "PJe2x Mobile 2",
-    texto: "O pje2x Mobile é um aplicativo 2",
-    capaPath: "assets/imagens/fundo_header.png");
