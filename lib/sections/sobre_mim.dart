@@ -6,48 +6,45 @@ class SobreMim extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //padding: const EdgeInsets.only(top: 100, bottom: 100),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomPaint(
-            painter: CustomShape(),
-            child: Container(
-              height: 300,
-              width: 300,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/imagens/perfil_1.png"),
-                      fit: BoxFit.contain),
-                  shape: BoxShape.circle),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CustomPaint(
+          painter: CustomShape(),
+          child: Container(
+            height: 300,
+            width: 300,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/imagens/perfil_1.png"),
+                    fit: BoxFit.contain),
+                shape: BoxShape.circle),
+          ),
+        ),
+        const SizedBox(
+          width: 50,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              "Sobre Mim",
+              style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
             ),
-          ),
-          const SizedBox(
-            width: 50,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Sobre Mim",
-                style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
+            const SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.20,
+              child: Text(
+                descricao,
+                style: const TextStyle(fontSize: 20),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.20,
-                child: Text(
-                  descricao,
-                  style: const TextStyle(fontSize: 20),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

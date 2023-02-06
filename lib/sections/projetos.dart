@@ -43,7 +43,6 @@ class _ProjetosState extends State<Projetos> {
           children: [
             GestureDetector(
               onTap: () {
-                print("Arrow back clicado");
                 setState(() {
                   selecionado >= 1 ? selecionado-- : selecionado;
                 });
@@ -62,7 +61,6 @@ class _ProjetosState extends State<Projetos> {
             ),
             GestureDetector(
               onTap: () {
-                print("Arrow Forward clicado");
                 setState(() {
                   selecionado < jobs.length - 1 ? selecionado++ : selecionado;
                 });
@@ -81,7 +79,6 @@ class _ProjetosState extends State<Projetos> {
   Widget projetoSelecionado(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          print("Projeto selecionado: ${jobs[selecionado].titulo}");
           Navigator.push(
               context,
               MaterialPageRoute(

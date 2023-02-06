@@ -49,7 +49,6 @@ class _HabilidadesState extends State<Habilidades> {
           children: [
             GestureDetector(
               onTap: () {
-                print("Arrow back clicado");
                 setState(() {
                   selecionado >= 1 ? selecionado-- : selecionado;
                 });
@@ -68,7 +67,6 @@ class _HabilidadesState extends State<Habilidades> {
             ),
             GestureDetector(
               onTap: () {
-                print("Arrow Forward clicado");
                 setState(() {
                   selecionado < habilidades.length - 1
                       ? selecionado++

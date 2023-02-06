@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
 import 'package:portfolio_projeto/fontes/read_projetos.dart';
 import 'package:portfolio_projeto/sections/contatos.dart';
-import 'package:portfolio_projeto/sections/foot.dart';
 import 'package:portfolio_projeto/sections/formacoes.dart';
 import 'package:portfolio_projeto/sections/habilidades.dart';
 import 'package:portfolio_projeto/sections/header.dart';

@@ -20,7 +20,6 @@ class Contatos extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                print("Instagram Clicado");
                 html.window.open(
                     "https://www.instagram.com/althierfson/", "instagram");
               },
@@ -37,7 +36,6 @@ class Contatos extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print("Likedin Clicado");
                 html.window.open(
                     "https://www.linkedin.com/in/althierfson/", "linkedin");
               },
@@ -54,7 +52,6 @@ class Contatos extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print("gitHub Clicado");
                 html.window.open("https://github.com/althierfson", "github");
               },
               child: Container(
