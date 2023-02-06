@@ -6,27 +6,31 @@ class Formacao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 100, bottom: 100),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        const Text(
-          "Minhas Formações",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        Row(
+      //padding: const EdgeInsets.only(top: 100, bottom: 100),
+      child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            formacaoTile("Bacharel Em ciência da Computação", "UERN - 2020"),
-            const SizedBox(
-              width: 20,
+            const Text(
+              "Minhas Formações",
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
             ),
-            formacaoTile("Pos-Graduação em Tecnologia da Informação",
-                "UFRN - Em Progresso"),
-          ],
-        )
-      ]),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                formacaoTile(
+                    "Bacharel Em ciência da Computação", "UERN - 2020"),
+                const SizedBox(
+                  width: 20,
+                ),
+                formacaoTile("Pos-Graduação em Tecnologia da Informação",
+                    "UFRN - Em Progresso"),
+              ],
+            )
+          ]),
     );
   }
 

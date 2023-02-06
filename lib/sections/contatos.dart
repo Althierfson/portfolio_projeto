@@ -8,68 +8,66 @@ class Contatos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 100, bottom: 100),
-      child: Column(
-        children: [
-          const Text(
-            "Contatos",
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  print("Instagram Clicado");
-                  html.window.open(
-                      "https://www.instagram.com/althierfson/", "instagram");
-                },
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/imagens/Instagram.png"))),
-                ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          "Contatos",
+          style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                print("Instagram Clicado");
+                html.window.open(
+                    "https://www.instagram.com/althierfson/", "instagram");
+              },
+              child: Container(
+                width: 200,
+                height: 200,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/imagens/Instagram.png"))),
               ),
-              const SizedBox(
-                width: 30,
+            ),
+            const SizedBox(
+              width: 30,
+            ),
+            GestureDetector(
+              onTap: () {
+                print("Likedin Clicado");
+                html.window.open(
+                    "https://www.linkedin.com/in/althierfson/", "linkedin");
+              },
+              child: Container(
+                width: 200,
+                height: 200,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/imagens/linkedin.png"))),
               ),
-              GestureDetector(
-                onTap: () {
-                  print("Likedin Clicado");
-                  html.window.open(
-                      "https://www.linkedin.com/in/althierfson/", "linkedin");
-                },
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/imagens/linkedin.png"))),
-                ),
+            ),
+            const SizedBox(
+              width: 30,
+            ),
+            GestureDetector(
+              onTap: () {
+                print("gitHub Clicado");
+                html.window.open("https://github.com/althierfson", "github");
+              },
+              child: Container(
+                width: 200,
+                height: 200,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/imagens/github.png"))),
               ),
-              const SizedBox(
-                width: 30,
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("gitHub Clicado");
-                  html.window.open("https://github.com/althierfson", "github");
-                },
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/imagens/github.png"))),
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+            )
+          ],
+        )
+      ],
     );
   }
 }
