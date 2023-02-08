@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:portfolio_projeto/shapes/custom_shape.dart';
 
 class SobreMim extends StatelessWidget {
@@ -6,45 +7,98 @@ class SobreMim extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CustomPaint(
-          painter: CustomShape(),
-          child: Container(
-            height: 300,
-            width: 300,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/imagens/perfil_1.png"),
-                    fit: BoxFit.contain),
-                shape: BoxShape.circle),
+    if (CheckDispositivo.isMobile) {
+      return buildSectionToPhone(context);
+    } else {
+      return buildSection(context);
+    }
+  }
+
+  Widget buildSection(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 100, bottom: 100),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomPaint(
+            painter: CustomShape(),
+            child: Container(
+              height: 300,
+              width: 300,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/imagens/perfil_1.png"),
+                      fit: BoxFit.contain),
+                  shape: BoxShape.circle),
+            ),
           ),
-        ),
-        const SizedBox(
-          width: 50,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Sobre Mim",
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.20,
-              child: Text(
-                descricao,
-                style: const TextStyle(fontSize: 20),
+          const SizedBox(
+            width: 50,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Sobre Mim",
+                style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
               ),
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.20,
+                child: Text(
+                  descricao,
+                  style: const TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildSectionToPhone(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 100, bottom: 100),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomPaint(
+            painter: CustomShape(),
+            child: Container(
+              height: 300,
+              width: 300,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/imagens/perfil_1.png"),
+                      fit: BoxFit.contain),
+                  shape: BoxShape.circle),
             ),
-          ],
-        )
-      ],
+          ),
+          const SizedBox(
+            width: 50,
+          ),
+          const Text(
+            "Sobre Mim",
+            style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8, right: 8),
+            child: Text(
+              descricao,
+              style: const TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

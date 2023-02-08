@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
 
 class Habilidades extends StatefulWidget {
@@ -21,8 +22,16 @@ class _HabilidadesState extends State<Habilidades> {
 
   @override
   Widget build(BuildContext context) {
+    if (CheckDispositivo.isMobile) {
+      return buildSectionToPhone(context);
+    } else {
+      return buildSection(context);
+    }
+  }
+
+  Container buildSection(BuildContext context) {
     return Container(
-      //padding: const EdgeInsets.only(top: 100, bottom: 100),
+      padding: const EdgeInsets.only(top: 100, bottom: 100),
       width: MediaQuery.of(context).size.width,
       color: const Color(0xFF77C159),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -61,7 +70,7 @@ class _HabilidadesState extends State<Habilidades> {
             const SizedBox(
               width: 20,
             ),
-            buildHabilidade(),
+            buildHabilidade(const Size(1920 * 0.20, 1080 * 0.20)),
             const SizedBox(
               width: 20,
             ),
@@ -84,13 +93,77 @@ class _HabilidadesState extends State<Habilidades> {
     );
   }
 
-  SizedBox buildHabilidade() {
+  Widget buildSectionToPhone(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 100, bottom: 100),
+      color: const Color(0xFF77C159),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        const Text(
+          "Habilidades",
+          style: TextStyle(
+            fontSize: 48,
+            fontWeight: FontWeight.w900,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(
+          height: 50,
+        ),
+        const Text(
+          "Aqui estão algumas habilidaes e ferramentas que já tive experiência",
+          style: TextStyle(fontSize: 20),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selecionado >= 1 ? selecionado-- : selecionado;
+                });
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                size: 50,
+              ),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            buildHabilidade(const Size(1920 * 0.10, 1080 * 0.10)),
+            const SizedBox(
+              width: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selecionado < habilidades.length - 1
+                      ? selecionado++
+                      : selecionado;
+                });
+              },
+              child: const Icon(
+                Icons.arrow_forward_ios,
+                size: 50,
+              ),
+            ),
+          ],
+        )
+      ]),
+    );
+  }
+
+  SizedBox buildHabilidade(Size size) {
     return SizedBox(
       child: Column(
         children: [
           Container(
-            width: 1920 * 0.20,
-            height: 1080 * 0.20,
+            width: size.width, //1920 * 0.20,
+            height: size.height, //1080 * 0.20,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(habilidades[selecionado].capaPath))),
@@ -99,7 +172,7 @@ class _HabilidadesState extends State<Habilidades> {
             height: 20,
           ),
           SizedBox(
-            width: 400,
+            width: size.width,
             child: Text(
               habilidades[selecionado].texto,
               style: const TextStyle(fontSize: 20),
