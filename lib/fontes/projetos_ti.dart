@@ -3,6 +3,36 @@ import 'package:portfolio_projeto/entidades/links.dart';
 
 List<Job> projetosTi = [
   Job(
+      titulo: "À vista ou a Prazo",
+      texto: """
+Um App simples feito em Flutter, com acesso a HG Finance API.
+
+Com esse app você poderá descobrir o que vale mais a pena! Pagar à vista ou a prazo.
+
+Sabe quando você vai comprar um novo produto, e você fica naquela dúvida se é melhor comprar à vista com desconto ou, parcelar, e deixar o dinheiro rendendo em algum investimento.
+
+Com o app À vista ou a prazo, você poderá simular essas duas situações e ver qual sai melhor para o seu bolso.
+
+Para de ficar calculando não mão, com alguns cliques no nosso app, você tem esse resposta de forma automática.
+""",
+      capaPath: "assets/projetosTI/aVistaOuAPrazo/capa.png",
+      assets: [
+        "assets/projetosTI/aVistaOuAPrazo/Screenshot_1.jpg",
+        "assets/projetosTI/aVistaOuAPrazo/Screenshot_2.jpg",
+        "assets/projetosTI/aVistaOuAPrazo/Screenshot_3.jpg",
+        "assets/projetosTI/aVistaOuAPrazo/Screenshot_4.jpg",
+        "assets/projetosTI/aVistaOuAPrazo/Screenshot_5.jpg",
+      ],
+      links: [
+        Link(
+            nome: "Veja o Projeto no meu gitHub",
+            url: "https://github.com/Althierfson/aVistaOuPrazo"),
+        Link(
+            nome: "Veja o App na PlayStore",
+            url:
+                "https://play.google.com/store/apps/details?id=com.cajugames.avistaouaprazo")
+      ]),
+  Job(
       titulo: "PJe2x Mobile",
       texto: """
 O aplicativo PJe2x é um app usado pelos magistrados da Tribunal Regional da 5ª Região! Onde eles podem assinar, ler e editar processos. Esse app faz parte do dia-adia de um magistrado.
@@ -23,6 +53,11 @@ O desenvolvimento ocorreu de forma completamente remota, onde use ferramentas ba
         "assets/projetosTI/pje2x_mobile/pje_5.jpg",
         "assets/projetosTI/pje2x_mobile/pje_6.jpg",
         "assets/projetosTI/pje2x_mobile/pje_7.jpg",
+      ],
+      links: [
+        Link(
+            nome: "Portal do projeto",
+            url: "https://residenciaregional.jfrn.jus.br/")
       ]),
   Job(
       titulo: "Banco de Talentos Mobile",
@@ -67,5 +102,5 @@ O jogo está disponível apenas para o sistemas androids e pode se baixado na Pl
             nome: "Play Store",
             url:
                 "https://play.google.com/store/apps/details?id=com.cajugames.projetod&hl=pt_BR&gl=US")
-      ])
+      ]),
 ];

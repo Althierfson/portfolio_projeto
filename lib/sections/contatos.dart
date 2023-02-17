@@ -12,7 +12,7 @@ class Contatos extends StatelessWidget {
     if (CheckDispositivo.isMobile) {
       return buildSection(const Size(60, 60));
     } else {
-      return buildSection(const Size(200, 200));
+      return buildSection(const Size(150, 150));
     }
   }
 
@@ -26,56 +26,56 @@ class Contatos extends StatelessWidget {
             "Contatos",
             style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
           ),
+          const SizedBox(
+            height: 30,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () {
-                  html.window.open(
-                      "https://www.instagram.com/althierfson/", "instagram");
-                },
-                child: Container(
-                  width: size.width,
-                  height: size.height,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/imagens/Instagram.png"))),
-                ),
-              ),
+              buildButton(
+                  size: size,
+                  link: "https://instagram.com/althierfson",
+                  imagePath: "assets/imagens/Instagram.png"),
               const SizedBox(
                 width: 30,
               ),
-              GestureDetector(
-                onTap: () {
-                  html.window.open(
-                      "https://www.linkedin.com/in/althierfson/", "linkedin");
-                },
-                child: Container(
-                  width: size.width,
-                  height: size.height,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/imagens/linkedin.png"))),
-                ),
-              ),
+              buildButton(
+                  size: size,
+                  link: "https://www.linkedin.com/in/althierfson/",
+                  imagePath: "assets/imagens/linkedin.png"),
               const SizedBox(
                 width: 30,
               ),
-              GestureDetector(
-                onTap: () {
-                  html.window.open("https://github.com/althierfson", "github");
-                },
-                child: Container(
-                  width: size.width,
-                  height: size.height,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/imagens/github.png"))),
-                ),
-              )
+              buildButton(
+                  size: size,
+                  link: "https://github.com/althierfson",
+                  imagePath: "assets/imagens/github.png"),
+              const SizedBox(
+                width: 30,
+              ),
+              buildButton(
+                  size: size,
+                  link:
+                      "https://play.google.com/store/apps/dev?id=7991476839615258497",
+                  imagePath: "assets/imagens/google_play.png"),
             ],
           )
         ],
+      ),
+    );
+  }
+
+  GestureDetector buildButton(
+      {required Size size, required String link, required String imagePath}) {
+    return GestureDetector(
+      onTap: () {
+        html.window.open(link, "Nova Aba");
+      },
+      child: Container(
+        width: size.width,
+        height: size.height,
+        decoration:
+            BoxDecoration(image: DecorationImage(image: AssetImage(imagePath))),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
+import 'dart:html' as html;
 
 class ProjetoPage extends StatelessWidget {
   final Job projeto;
@@ -51,10 +52,35 @@ class ProjetoPage extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.40,
-                    child: Text(
-                      projeto.texto,
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(fontSize: 20),
+                    child: Column(
+                      children: [
+                        Text(
+                          projeto.texto,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        SizedBox(
+                          height: 100,
+                          child: ListView.builder(
+                            itemCount: projeto.links.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: TextButton(
+                                  child: Text(
+                                    projeto.links[index].nome,
+                                    style: const TextStyle(fontSize: 18),
+                                  ),
+                                  onPressed: () {
+                                    html.window.open(projeto.links[index].url,
+                                        projeto.links[index].nome);
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   SizedBox(
