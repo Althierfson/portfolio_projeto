@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
-import 'dart:html' as html;
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjetoPage extends StatelessWidget {
   final Job projeto;
@@ -72,8 +72,8 @@ class ProjetoPage extends StatelessWidget {
                                     style: const TextStyle(fontSize: 18),
                                   ),
                                   onPressed: () {
-                                    html.window.open(projeto.links[index].url,
-                                        projeto.links[index].nome);
+                                    launchUrl(
+                                        Uri.parse(projeto.links[index].url));
                                   },
                                 ),
                               );
@@ -152,25 +152,39 @@ class ProjetoPage extends StatelessWidget {
                   style: const TextStyle(fontSize: 20),
                 ),
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.90,
-                height: MediaQuery.of(context).size.height,
-                child: ListView.separated(
-                  itemCount: projeto.assets.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width * 0.90,
-                      height: MediaQuery.of(context).size.height * 0.70,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(projeto.assets[index]),
-                              // ! Adciona uma função para aumentar a imagem quando ela for clicada
-                              fit: BoxFit.contain)),
-                    );
-                  },
-                  separatorBuilder: (BuildContext context, int index) =>
-                      const SizedBox(
-                    height: 10,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                      projeto.assets.length,
+                      (index) => Container(
+                            width: MediaQuery.of(context).size.width * 0.90,
+                            height: MediaQuery.of(context).size.height * 0.70,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(projeto.assets[index]),
+                                    // ! Adciona uma função para aumentar a imagem quando ela for clicada
+                                    fit: BoxFit.contain)),
+                          )),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    projeto.links.length,
+                    (index) => TextButton(
+                      child: Text(
+                        projeto.links[index].nome,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      onPressed: () {
+                        launchUrl(Uri.parse(projeto.links[index].url));
+                      },
+                    ),
                   ),
                 ),
               )

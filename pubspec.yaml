@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:
@@ -22,4 +23,11 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/
+    - assets/habilidades/
+    - assets/imagens/
+    - assets/outros_projetos/
+    - assets/projetosTI/aVistaOuAPrazo/
+    - assets/projetosTI/banco_de_talentos/
+    - assets/projetosTI/pje2x_mobile/
+    - assets/projetosTI/space_virus/
+    - assets/projetosTI/minesweeper/

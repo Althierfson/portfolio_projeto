@@ -1,8 +1,7 @@
-import 'dart:html' as html;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contatos extends StatelessWidget {
   const Contatos({super.key});
@@ -29,36 +28,47 @@ class Contatos extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildButton(
-                  size: size,
-                  link: "https://instagram.com/althierfson",
-                  imagePath: "assets/imagens/Instagram.png"),
-              const SizedBox(
-                width: 30,
-              ),
-              buildButton(
-                  size: size,
-                  link: "https://www.linkedin.com/in/althierfson/",
-                  imagePath: "assets/imagens/linkedin.png"),
-              const SizedBox(
-                width: 30,
-              ),
-              buildButton(
-                  size: size,
-                  link: "https://github.com/althierfson",
-                  imagePath: "assets/imagens/github.png"),
-              const SizedBox(
-                width: 30,
-              ),
-              buildButton(
-                  size: size,
-                  link:
-                      "https://play.google.com/store/apps/dev?id=7991476839615258497",
-                  imagePath: "assets/imagens/google_play.png"),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buildButton(
+                    size: size,
+                    link: "https://instagram.com/althierfson",
+                    imagePath: "assets/imagens/Instagram.png"),
+                const SizedBox(
+                  width: 30,
+                ),
+                buildButton(
+                    size: size,
+                    link: "https://www.linkedin.com/in/althierfson/",
+                    imagePath: "assets/imagens/linkedin.png"),
+                const SizedBox(
+                  width: 30,
+                ),
+                buildButton(
+                    size: size,
+                    link: "https://github.com/althierfson",
+                    imagePath: "assets/imagens/github.png"),
+                const SizedBox(
+                  width: 30,
+                ),
+                buildButton(
+                    size: size,
+                    link:
+                        "https://play.google.com/store/apps/dev?id=7991476839615258497",
+                    imagePath: "assets/imagens/google_play.png"),
+                const SizedBox(
+                  width: 30,
+                ),
+                buildButton(
+                    size: size,
+                    link:
+                        "https://www.youtube.com/channel/UCBagIpF8Ua5zx7OyfNi3uKw",
+                    imagePath: "assets/imagens/youtube.png"),
+              ],
+            ),
           )
         ],
       ),
@@ -69,7 +79,7 @@ class Contatos extends StatelessWidget {
       {required Size size, required String link, required String imagePath}) {
     return GestureDetector(
       onTap: () {
-        html.window.open(link, "Nova Aba");
+        launchUrl(Uri.parse(link));
       },
       child: Container(
         width: size.width,

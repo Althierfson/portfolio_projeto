@@ -3,6 +3,34 @@ import 'package:portfolio_projeto/entidades/links.dart';
 
 List<Job> projetosTi = [
   Job(
+      titulo: "MinesWeeper",
+      texto: """
+Baixe o Campo Minado e mergulhe em um mundo de desafios estratégicos!
+
+Este clássico jogo de lógica, agora em um aplicativo para dispositivos móveis, irá testar suas habilidades de raciocínio e resolução de problemas.
+
+Desvende o campo minado, evite as bombas e marque seu nome nas classificações!
+
+Para esse projetos forma usados tecnlogias como:
+ - GetX.
+ - Padrão MVC.
+ - dependencia hive do Flutter.
+""",
+      capaPath: "assets/projetosTI/minesweeper/capa.png",
+      assets: [
+        "assets/projetosTI/minesweeper/screenshoot_1.png",
+        "assets/projetosTI/minesweeper/screenshoot_2.png",
+        "assets/projetosTI/minesweeper/screenshoot_3.png",
+        "assets/projetosTI/minesweeper/screenshoot_4.png",
+        "assets/projetosTI/minesweeper/screenshoot_5.png"
+      ],
+      links: [
+        Link(
+            nome: "Play Store",
+            url:
+                "https://play.google.com/store/apps/details?id=com.cajuapps.minesweeper")
+      ]),
+  Job(
       titulo: "À vista ou a Prazo",
       texto: """
 Um App simples feito em Flutter, com acesso a HG Finance API.
