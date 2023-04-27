@@ -35,8 +35,8 @@ class Formacao extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                formacaoTile("Pos-Graduação em Tecnologia da Informação",
-                    "UFRN - Em Progresso"),
+                formacaoTile(
+                    "Especialista em Tecnologia da Informação", "UFRN - 2023"),
               ],
             )
           ]),
@@ -62,8 +62,8 @@ class Formacao extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          formacaoTileToPhone("Pos-Graduação em Tecnologia da Informação",
-              "UFRN - Em Progresso"),
+          formacaoTileToPhone(
+              "Especialista em Tecnologia da Informação", "UFRN - 2023"),
         ],
       ),
     );
