@@ -5,15 +5,15 @@ List<Job> outrosProjetos = [
   Job(
       titulo: "TechSocial",
       texto: """
-O techsocial é formado por um grupo de pessoas, cujo objetivo é preparar o indivíduo para o novo seculo, o século XXI, o seculo da tecnologia, e inovação e mudanças constates e rápidas.
+O TechSocial é um projeto Inovador formado por um grupo de pessoas comprometidas em preparar indivíduos para o século XXI, um período marcado pela tecnologia, inovação e mudanças rápidas e constantes.
 
-Pude trabalhar nesse projeto, quando ele estava começando, pelo convite do Alberto Signoretti, idealizado do techsocial, na época meu professor.
+Fui convidado pelo idealizador do TechSocial, o Alberto Signoretti, que na época era meu professor, para participar desse projeto em seu estágio inicial. Desde então, tenho trabalhado ativamente com a equipe, contribuindo em diversas áreas.
 
-Lá vi (e ainda vejo, pôs o projeto continuar de pê e crescendo) de perto a materialização de um projeto, inovador, tendo participado muitas vezes diretamente, lá atuei como escrito para o blog. Construtor e design de site, e muitas vezes como aluno :).
+Como redator, contribuí para o blog do TechSocial, criando conteúdo relevante e informativo. Além disso, atuei como construtor e designer de site, ajudando a construir a presença online do projeto.
 
-Mais minha maior contribuição nesse projeto, foi ter trabalho na aérea de marketing, uma área completamente fora da minha zona de conforto, lá sou responsável por gerenciar os anúncios em plataformas como Facebook ads e Google ads.
+Mas, talvez minha maior contribuição tenha sido na área de marketing. Mesmo sendo algo completamente fora da minha zona de conforto, fui responsável por gerenciar anúncios em plataformas como Facebook Ads e Google Ads, o que me permitiu aprender a pensar de forma diferente e a crescer continuamente.
 
-No techsocial puder aprender a pensar diferente, e a continuar crescendo e melhorando, caso contrario o cliente pode reclamar :)
+Participar desse projeto me ensinou muito sobre como trabalhar em equipe, pensar fora da caixa e continuar melhorando constantemente. O TechSocial é um projeto em constante evolução e sinto-me honrado em fazer parte dessa equipe incrível.
 """,
       capaPath: "assets/outros_projetos/TechSocia.webp",
       links: [

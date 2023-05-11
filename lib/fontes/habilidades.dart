@@ -4,12 +4,8 @@ List<Job> habilidades = [
   Job(
       titulo: "Flutter",
       texto:
-          "Com o Flutter já tive oportunidade de trabalhar em projetos, pessoais, academicos, e profissonais, tenhos mais de 1 ano de experiência com essa Framework",
+          "Com mais de 2 ano de experiência em Flutter, já trabalhei em projetos pessoais, acadêmicos e profissionais, o que me permitiu desenvolver habilidades sólidas na criação de aplicações móveis utilizando essa framework. Estou sempre em busca de aprender e me atualizar para oferecer soluções cada vez mais eficientes e modernas aos meus clientes.",
       capaPath: "assets/habilidades/flutter.png"),
-  Job(
-      titulo: "Java",
-      texto: "Trabalhei em projetos academicos com java",
-      capaPath: "assets/habilidades/java.png"),
   Job(
       titulo: "Clean Architecture",
       texto:

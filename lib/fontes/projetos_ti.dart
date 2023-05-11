@@ -3,18 +3,46 @@ import 'package:portfolio_projeto/entidades/links.dart';
 
 List<Job> projetosTi = [
   Job(
+      titulo: "Astronomy pictures",
+      texto:
+          """O Astronomy Picture é um aplicativo para dispositivos móveis que permite aos usuários explorar uma vasta biblioteca de imagens e vídeos relacionados à astronomia e ao espaço. O APP é desenvolvido em Flutter com o padrão de arquitetura Clean Architecture e usa a técnica de desenvolvimento TDD (Test Driven Development), garantindo a qualidade do código e a confiabilidade da aplicação.
+
+O aplicativo consome a API APOD (Astronomy Picture of the Day) da NASA, que fornece uma imagem ou vídeo do espaço a cada dia com uma breve descrição. Além disso, o usuário pode rolar infinitamente pela galeria de imagens e vídeos aleatórios.
+
+Com a funcionalidade de pesquisa, o usuário pode procurar um conteúdo específico com base em uma data ou período, tornando a navegação ainda mais fácil e personalizada.
+
+O Astronomy Picture também incentiva o uso diário, pois envia notificações diárias convidando o usuário a visitar o APP e descobrir novas imagens e vídeos incríveis.
+
+Para garantir uma experiência ainda mais personalizada, o aplicativo permite que o usuário salve localmente o conteúdo de sua preferência, podendo acessá-lo a qualquer momento, mesmo sem conexão com a internet.
+
+Com o Astronomy Picture, a exploração do espaço nunca foi tão fácil e interessante.""",
+      capaPath: "assets/projetosTI/astronomy_picture/capa.png",
+      assets: [
+        "assets/projetosTI/astronomy_picture/Screenshot_1.png",
+        "assets/projetosTI/astronomy_picture/Screenshot_2.png",
+        "assets/projetosTI/astronomy_picture/Screenshot_3.png",
+        "assets/projetosTI/astronomy_picture/Screenshot_4.png",
+        "assets/projetosTI/astronomy_picture/Screenshot_5.png",
+      ],
+      links: [
+        Link(
+            nome: "Play Store",
+            url:
+                "https://play.google.com/store/apps/details?id=com.cajuapps.astronomy_picture"),
+        Link(
+            nome: "Repositorio GitHub",
+            url: "https://github.com/Althierfson/astronomy_picture")
+      ]),
+  Job(
       titulo: "MinesWeeper",
-      texto: """
-Baixe o Campo Minado e mergulhe em um mundo de desafios estratégicos!
+      texto:
+          """Explore o emocionante mundo dos desafios estratégicos com o jogo clássico Campo Minado! Teste suas habilidades de raciocínio e resolução de problemas enquanto você desvenda o campo minado e evita as bombas.
 
-Este clássico jogo de lógica, agora em um aplicativo para dispositivos móveis, irá testar suas habilidades de raciocínio e resolução de problemas.
+Com uma interface intuitiva e gráficos atraentes, o aplicativo é fácil de usar e proporciona uma experiência envolvente e imersiva para os usuários.!
 
-Desvende o campo minado, evite as bombas e marque seu nome nas classificações!
+Para desenvolver esse emocionante projeto, foram utilizadas tecnologias, como Flutter/Dart, GetX, o padrão MVC e a dependência hive do Flutter, que garantem uma performance rápida e estável do aplicativo em todos os dispositivos móveis.
 
-Para esse projetos forma usados tecnlogias como:
- - GetX.
- - Padrão MVC.
- - dependencia hive do Flutter.
+Baixe agora o Campo Minado e desafie sua mente com esse clássico jogo de estratégia!
 """,
       capaPath: "assets/projetosTI/minesweeper/capa.png",
       assets: [
@@ -32,16 +60,14 @@ Para esse projetos forma usados tecnlogias como:
       ]),
   Job(
       titulo: "À vista ou a Prazo",
-      texto: """
-Um App simples feito em Flutter, com acesso a HG Finance API.
+      texto:
+          """Com o aplicativo À Vista ou a Prazo, você pode tomar decisões financeiras inteligentes ao descobrir qual opção é mais vantajosa para você: pagar à vista ou parcelar suas compras.
 
-Com esse app você poderá descobrir o que vale mais a pena! Pagar à vista ou a prazo.
+Imagine que você está prestes a comprar um novo produto e se depara com a escolha de pagar à vista com desconto ou parcelar e deixar o dinheiro rendendo em algum investimento. Com o À Vista ou a Prazo, você pode simular essas duas situações e obter uma resposta precisa e automática.
 
-Sabe quando você vai comprar um novo produto, e você fica naquela dúvida se é melhor comprar à vista com desconto ou, parcelar, e deixar o dinheiro rendendo em algum investimento.
+Com uma interface simples e fácil de usar, o app permite que você faça simulações em apenas alguns cliques, sem precisar fazer cálculos complexos.
 
-Com o app À vista ou a prazo, você poderá simular essas duas situações e ver qual sai melhor para o seu bolso.
-
-Para de ficar calculando não mão, com alguns cliques no nosso app, você tem esse resposta de forma automática.
+Desenvolvido com tecnologias avançadas como Flutter/Dart, bloc, clean architecture, o aplicativo garante desempenho rápido e estável em todos os dispositivos móveis. Baixe agora o À Vista ou a Prazo e comece a tomar decisões financeiras mais inteligentes!
 """,
       capaPath: "assets/projetosTI/aVistaOuAPrazo/capa.png",
       assets: [
@@ -63,15 +89,13 @@ Para de ficar calculando não mão, com alguns cliques no nosso app, você tem e
   Job(
       titulo: "PJe2x Mobile",
       texto: """
-O aplicativo PJe2x é um app usado pelos magistrados da Tribunal Regional da 5ª Região! Onde eles podem assinar, ler e editar processos. Esse app faz parte do dia-adia de um magistrado.
+O aplicativo PJe2x é uma ferramenta essencial para os magistrados do Tribunal Regional da 5ª Região, permitindo que eles assinem, leiam e editem processos diretamente de seus dispositivos móveis. Tive a oportunidade de participar do desenvolvimento da nova versão do aplicativo, desde a concepção inicial das telas até a implementação final, como Desenvolvedor Mobile em uma equipe com outros quatro desenvolvedores e um gerente.
 
-Tive a oportunidade de trabalha na nova versão do aplicativo, participando desde da concepção inicial das telas, até o desenvolvimento.
+Utilizando a tecnologia Flutter, o aplicativo está atualmente em fase de testes com servidores selecionados, recebendo elogios dos usuários que tiveram contato com ele. Durante o desenvolvimento do projeto, pude trabalhar com metodologias ágeis, como Scrum, e aprimorei minhas habilidades de trabalho em equipe.
 
-Desenvolvido em Flutter o app, esta ainda em testes com servidores selecionados, porem vem sendo elogiados por todos que entram em contato.
+Como o desenvolvimento ocorreu de forma totalmente remota, tive a oportunidade de trabalhar com diversas ferramentas e plataformas, incluindo ferramentas de videoconferência como Meet, Zoom e Teams, bem como o Discord, Jira e GitLab.
 
-Trabalhando nesse projeto como Desenvolvedor Mobile, em uma equipe com mais 4 desenvolvedores, e um gerente, dele entre em contato com metodologias ágeis como scrum, e a oportunidade de trabalhar em um projeto em equipe.
-
-O desenvolvimento ocorreu de forma completamente remota, onde use ferramentas bastante comun nesse tipo de trabalho, como ferramentas de videoconferência (Meet, Zoom, e Teams), discord, Jira e gitlab.
+Ao participar deste projeto, desenvolvi habilidades em programação móvel, arquitetura de aplicativos, gerenciamento de projetos e comunicação em equipe. Estou ansioso para continuar aprimorando essas habilidades em projetos futuros!
 """,
       capaPath: "assets/projetosTI/pje2x_mobile/miniatura.png",
       assets: [
@@ -90,15 +114,13 @@ O desenvolvimento ocorreu de forma completamente remota, onde use ferramentas ba
   Job(
       titulo: "Banco de Talentos Mobile",
       texto: """
-O aplicativo Banco de Talentos Mobile é uma extensão do sistema Banco de Talentos, esse sistema vem sendo desenvolvimento pelo Tribunal Regional da 5ª Região juntamento com a UFRN.
+O aplicativo Banco de Talentos Mobile é uma extensão do sistema Banco de Talentos em desenvolvimento pelo Tribunal Regional da 5ª Região em colaboração com a UFRN. Como parte da minha pós-graduação em Tecnologia da Informação, tive a oportunidade de desenvolver esse aplicativo aplicando várias técnicas de desenvolvimento.
 
-Nesse projeto pude entrar e aplicar várias técnicas de desenvolvimento, uma delas foi o clean Architecture, uma metodologia de organização de código muito eficiente, essa arquitetura permite criar projetos mais limpos, de fácil leitura, testáveis, e de fácil manutenção.
+Durante o desenvolvimento, apliquei a metodologia Clean Architecture, que permitiu criar um projeto limpo, de fácil leitura, testável e de fácil manutenção. Também utilizei a técnica de Test Driven Development (TDD) para garantir um código mais confiável e reduzir a quantidade de bugs no aplicativo.
 
-Pude também aplicar TDD (Test Drive Development), uma técnica de desenvolvimento bastante interessa que garante um código mais confiável.
+Além disso, aproveitei a oportunidade para aplicar o padrão de design BLoC no controle dos estados da aplicação, aproveitando as vantagens do framework Flutter.
 
-Outra técnica que puder aplicar especificamente para desenvolvimento dentro do Framework Flutter, foi o BLOC para fazer o controle dos estados da aplicação.
-
-Esse projeto vendo sendo desenvolvido apenas por mim, e ele faz parte da minha Pôs-Graduação em Tecnologia da Informação.
+Como o projeto foi desenvolvido apenas por mim, pude exercitar minha autonomia e responsabilidade na tomada de decisões de design e implementação do aplicativo. Ao concluir o projeto, adquiri habilidades em desenvolvimento móvel, arquitetura de software, teste automatizado e design de interfaces de usuário.
           """,
       capaPath: "assets/projetosTI/banco_de_talentos/miniatura.jpg",
       assets: [
@@ -113,11 +135,15 @@ Esse projeto vendo sendo desenvolvido apenas por mim, e ele faz parte da minha P
   Job(
       titulo: "Space Virus Game",
       texto: """
-O Space Defente foi um projeto de "verão" que eu fiz! É um jogo onde seu objetivo é defender a sua base especial contra o ataque dos virus.
+O Space Defender é um jogo mobile desenvolvido em Godot, uma engine gratuita e de código aberto que está ganhando destaque na indústria de jogos.
 
-Fiz esse jogo usando a engine Godot, uma engine gratuita que vem ganhando muito destaque.
+Nesse jogo, você é responsável por defender sua base espacial contra o ataque de vírus alienígenas. O jogador precisa destruir os inimigos antes que eles destruam a base.
 
-O jogo está disponível apenas para o sistemas androids e pode se baixado na PlayStore.
+O jogo conta com uma jogabilidade dinâmica e desafiadora, com inimigos cada vez mais difíceis.
+
+O Space Defender foi desenvolvido como um projeto de verão, visando explorar novas tecnologias e aprimorar habilidades de desenvolvimento de jogos.
+
+Atualmente, está disponível apenas para dispositivos Android na Play Store.
 """,
       capaPath: "assets/projetosTI/space_virus/minuatura.png",
       assets: [
