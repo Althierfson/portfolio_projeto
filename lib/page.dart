@@ -87,24 +87,19 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 },
               ),
             ),
-            GetOffset(
+            /*GetOffset(
                 offSet: (offset) {
                   offSetList[1] = offset.dy;
                 },
-                child: const SobreMim()),
+                child: const SobreMim()),*/
             GetOffset(
               offSet: (offset) {
                 offSetList[2] = offset.dy;
               },
               child: Projetos(
-                  titulo: "Meus melhores projetos",
+                  titulo: "Projetos",
                   jobs: readFonte(TiposDeProjeto.projetosTI)),
             ),
-            GetOffset(
-                offSet: (offset) {
-                  offSetList[3] = offset.dy;
-                },
-                child: const Formacao()),
             GetOffset(
               offSet: (offset) {
                 offSetList[4] = offset.dy;
@@ -115,12 +110,17 @@ class _PortfolioPageState extends State<PortfolioPage> {
             ),
             GetOffset(
                 offSet: (offset) {
+                  offSetList[3] = offset.dy;
+                },
+                child: const Formacao()),
+            GetOffset(
+                offSet: (offset) {
                   offSetList[5] = offset.dy;
                 },
                 child: const Contatos()),
-            Projetos(
+            /*Projetos(
                 titulo: "Projetos fora da TI",
-                jobs: readFonte(TiposDeProjeto.outrosProjetos)),
+                jobs: readFonte(TiposDeProjeto.outrosProjetos)),*/
             const Foot()
           ],
         ),
@@ -160,7 +160,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
         onSelected: (valor) {
           scrollToIndex(valor);
         },
-      )
+      ),
     ]);
   }
 

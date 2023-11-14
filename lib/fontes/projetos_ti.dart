@@ -3,19 +3,31 @@ import 'package:portfolio_projeto/entidades/links.dart';
 
 List<Job> projetosTi = [
   Job(
+      titulo: "PJe2x Mobile",
+      texto:
+          "O aplicativo PJe2x é uma ferramenta essencial para os magistrados do Tribunal Regional da 5ª Região, "
+          "permitindo que eles assinem, leiam e editem processos diretamente de seus dispositivos móveis. "
+          "Feito para Android e IOS, com a framework flutter, o app se conectar com o PDPJ-br do CNJ.",
+      capaPath: "assets/projetosTI/pje2x_mobile/capa.png",
+      assets: [
+        "assets/projetosTI/pje2x_mobile/pje_1.jpg",
+        "assets/projetosTI/pje2x_mobile/pje_2.jpg",
+        "assets/projetosTI/pje2x_mobile/pje_3.jpg",
+        "assets/projetosTI/pje2x_mobile/pje_5.jpg",
+        "assets/projetosTI/pje2x_mobile/pje_6.jpg",
+        "assets/projetosTI/pje2x_mobile/pje_7.jpg",
+      ],
+      links: [
+        Link(
+            nome: "Portal do projeto",
+            url: "https://residenciaregional.jfrn.jus.br/")
+      ]),
+  Job(
       titulo: "Astronomy pictures",
       texto:
-          """O Astronomy Picture é um aplicativo para dispositivos móveis que permite aos usuários explorar uma vasta biblioteca de imagens e vídeos relacionados à astronomia e ao espaço. O APP é desenvolvido em Flutter com o padrão de arquitetura Clean Architecture e usa a técnica de desenvolvimento TDD (Test Driven Development), garantindo a qualidade do código e a confiabilidade da aplicação.
-
-O aplicativo consome a API APOD (Astronomy Picture of the Day) da NASA, que fornece uma imagem ou vídeo do espaço a cada dia com uma breve descrição. Além disso, o usuário pode rolar infinitamente pela galeria de imagens e vídeos aleatórios.
-
-Com a funcionalidade de pesquisa, o usuário pode procurar um conteúdo específico com base em uma data ou período, tornando a navegação ainda mais fácil e personalizada.
-
-O Astronomy Picture também incentiva o uso diário, pois envia notificações diárias convidando o usuário a visitar o APP e descobrir novas imagens e vídeos incríveis.
-
-Para garantir uma experiência ainda mais personalizada, o aplicativo permite que o usuário salve localmente o conteúdo de sua preferência, podendo acessá-lo a qualquer momento, mesmo sem conexão com a internet.
-
-Com o Astronomy Picture, a exploração do espaço nunca foi tão fácil e interessante.""",
+          "O Astronomy Picture é um aplicativo para dispositivos móveis que permite aos usuários explorar "
+          "uma vasta biblioteca de imagens e vídeos relacionados à astronomia e ao espaço. O APP é desenvolvido "
+          "em Flutter, esse APP consume a API APOD oferecida pela Nasa",
       capaPath: "assets/projetosTI/astronomy_picture/capa.png",
       assets: [
         "assets/projetosTI/astronomy_picture/Screenshot_1.png",
@@ -36,14 +48,9 @@ Com o Astronomy Picture, a exploração do espaço nunca foi tão fácil e inter
   Job(
       titulo: "MinesWeeper",
       texto:
-          """Explore o emocionante mundo dos desafios estratégicos com o jogo clássico Campo Minado! Teste suas habilidades de raciocínio e resolução de problemas enquanto você desvenda o campo minado e evita as bombas.
-
-Com uma interface intuitiva e gráficos atraentes, o aplicativo é fácil de usar e proporciona uma experiência envolvente e imersiva para os usuários.!
-
-Para desenvolver esse emocionante projeto, foram utilizadas tecnologias, como Flutter/Dart, GetX, o padrão MVC e a dependência hive do Flutter, que garantem uma performance rápida e estável do aplicativo em todos os dispositivos móveis.
-
-Baixe agora o Campo Minado e desafie sua mente com esse clássico jogo de estratégia!
-""",
+          "O classico jogo de campo minado, o usuario pode navegar entre diferentes dificudades, a também conseguir "
+          "consquista com base aveluir, o jogo possuir um versão gratuita e paga. Para o desenvolvimento foi usado "
+          "Flutter, o APP e possuir integração com o API de pagametnos da play store.",
       capaPath: "assets/projetosTI/minesweeper/capa.png",
       assets: [
         "assets/projetosTI/minesweeper/screenshoot_1.png",
@@ -61,14 +68,9 @@ Baixe agora o Campo Minado e desafie sua mente com esse clássico jogo de estrat
   Job(
       titulo: "À vista ou a Prazo",
       texto:
-          """Com o aplicativo À Vista ou a Prazo, você pode tomar decisões financeiras inteligentes ao descobrir qual opção é mais vantajosa para você: pagar à vista ou parcelar suas compras.
-
-Imagine que você está prestes a comprar um novo produto e se depara com a escolha de pagar à vista com desconto ou parcelar e deixar o dinheiro rendendo em algum investimento. Com o À Vista ou a Prazo, você pode simular essas duas situações e obter uma resposta precisa e automática.
-
-Com uma interface simples e fácil de usar, o app permite que você faça simulações em apenas alguns cliques, sem precisar fazer cálculos complexos.
-
-Desenvolvido com tecnologias avançadas como Flutter/Dart, bloc, clean architecture, o aplicativo garante desempenho rápido e estável em todos os dispositivos móveis. Baixe agora o À Vista ou a Prazo e comece a tomar decisões financeiras mais inteligentes!
-""",
+          "O APP volta para axiliar na tomada de decição de comprar, o usuario pode verificar se vale apena pagar "
+          "a prazo ou a vista, verificando o rendimento e economia ao longo do tempo. Feito em Flutter e acessando a "
+          "API da HgBrasil, o APP esta disponivel para android.",
       capaPath: "assets/projetosTI/aVistaOuAPrazo/capa.png",
       assets: [
         "assets/projetosTI/aVistaOuAPrazo/Screenshot_1.jpg",
@@ -86,31 +88,7 @@ Desenvolvido com tecnologias avançadas como Flutter/Dart, bloc, clean architect
             url:
                 "https://play.google.com/store/apps/details?id=com.cajugames.avistaouaprazo")
       ]),
-  Job(
-      titulo: "PJe2x Mobile",
-      texto: """
-O aplicativo PJe2x é uma ferramenta essencial para os magistrados do Tribunal Regional da 5ª Região, permitindo que eles assinem, leiam e editem processos diretamente de seus dispositivos móveis. Tive a oportunidade de participar do desenvolvimento da nova versão do aplicativo, desde a concepção inicial das telas até a implementação final, como Desenvolvedor Mobile em uma equipe com outros quatro desenvolvedores e um gerente.
-
-Utilizando a tecnologia Flutter, o aplicativo está atualmente em fase de testes com servidores selecionados, recebendo elogios dos usuários que tiveram contato com ele. Durante o desenvolvimento do projeto, pude trabalhar com metodologias ágeis, como Scrum, e aprimorei minhas habilidades de trabalho em equipe.
-
-Como o desenvolvimento ocorreu de forma totalmente remota, tive a oportunidade de trabalhar com diversas ferramentas e plataformas, incluindo ferramentas de videoconferência como Meet, Zoom e Teams, bem como o Discord, Jira e GitLab.
-
-Ao participar deste projeto, desenvolvi habilidades em programação móvel, arquitetura de aplicativos, gerenciamento de projetos e comunicação em equipe. Estou ansioso para continuar aprimorando essas habilidades em projetos futuros!
-""",
-      capaPath: "assets/projetosTI/pje2x_mobile/miniatura.png",
-      assets: [
-        "assets/projetosTI/pje2x_mobile/pje_1.jpg",
-        "assets/projetosTI/pje2x_mobile/pje_2.jpg",
-        "assets/projetosTI/pje2x_mobile/pje_3.jpg",
-        "assets/projetosTI/pje2x_mobile/pje_5.jpg",
-        "assets/projetosTI/pje2x_mobile/pje_6.jpg",
-        "assets/projetosTI/pje2x_mobile/pje_7.jpg",
-      ],
-      links: [
-        Link(
-            nome: "Portal do projeto",
-            url: "https://residenciaregional.jfrn.jus.br/")
-      ]),
+  
   Job(
       titulo: "Banco de Talentos Mobile",
       texto: """

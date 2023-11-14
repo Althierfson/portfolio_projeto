@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,55 +22,44 @@ class Contatos extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             "Contatos",
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+            style:
+                GoogleFonts.zenDots(fontSize: 40, fontWeight: FontWeight.bold),
           ),
           const SizedBox(
             height: 30,
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                buildButton(
-                    size: size,
-                    link: "https://instagram.com/althierfson",
-                    imagePath: "assets/imagens/Instagram.png"),
-                const SizedBox(
-                  width: 30,
-                ),
-                buildButton(
-                    size: size,
-                    link: "https://www.linkedin.com/in/althierfson/",
-                    imagePath: "assets/imagens/linkedin.png"),
-                const SizedBox(
-                  width: 30,
-                ),
-                buildButton(
-                    size: size,
-                    link: "https://github.com/althierfson",
-                    imagePath: "assets/imagens/github.png"),
-                const SizedBox(
-                  width: 30,
-                ),
-                buildButton(
-                    size: size,
-                    link:
-                        "https://play.google.com/store/apps/dev?id=7991476839615258497",
-                    imagePath: "assets/imagens/google_play.png"),
-                const SizedBox(
-                  width: 30,
-                ),
-                buildButton(
-                    size: size,
-                    link:
-                        "https://www.youtube.com/channel/UCBagIpF8Ua5zx7OyfNi3uKw",
-                    imagePath: "assets/imagens/youtube.png"),
-              ],
-            ),
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  const Text(
+                    "Tem algum projeto para trabalharmos juntos?",
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                  const Text(
+                    "althierfsonwork@gmail.com",
+                    style:
+                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      launchUrl(Uri.parse("www.linkedin.com/in/althierfson"));
+                    },
+                    child: Image.asset(
+                      "assets/imagens/linkedin.png",
+                      height: 50.0,
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ],
       ),
     );

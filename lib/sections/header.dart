@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
+import 'package:portfolio_projeto/custom_colors.dart';
 import 'package:portfolio_projeto/shapes/custom_shape.dart';
 
 class Header extends StatefulWidget {
@@ -11,6 +13,12 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  List<String> iconsList = [
+    "assets/imagens/flutter_icon.png",
+    "assets/imagens/adnroid_icon.png",
+    "assets/imagens/ios_icon.png"
+  ];
+
   @override
   Widget build(BuildContext context) {
     if (CheckDispositivo.isMobile) {
@@ -23,16 +31,6 @@ class _HeaderState extends State<Header> {
   Widget buildSection() {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
-      decoration: BoxDecoration(
-          color: Colors.black,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.2), BlendMode.dstATop),
-            image: const AssetImage(
-              "assets/imagens/fundo_header.png",
-            ),
-          )),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -55,23 +53,47 @@ class _HeaderState extends State<Header> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "Olá! Eu sou\nAlthierfson Tullio",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
+              Container(
+                padding: const EdgeInsets.fromLTRB(40.0, 8.0, 40.0, 8.0),
+                decoration: BoxDecoration(
+                    color: CustomColors.persianBlue,
+                    borderRadius: BorderRadius.circular(15.0)),
+                child: const Text(
+                  "Olá Eu sou",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 20,
+              ),
+              Text(
+                "ALTHIERFSON TULLIO",
+                style: GoogleFonts.zenDots(fontSize: 32, color: Colors.black),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               const Text(
                 "Desenvolvedor Mobile",
                 style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white),
+                    color: Colors.black),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: List.generate(
+                    iconsList.length,
+                    (index) => Image.asset(
+                          iconsList[index],
+                          height: 50,
+                        )),
               ),
               const SizedBox(
                 height: 30,
@@ -82,9 +104,9 @@ class _HeaderState extends State<Header> {
                   padding: const EdgeInsets.only(
                       left: 20, right: 20, top: 10, bottom: 10),
                   decoration: const BoxDecoration(
-                      color: Colors.blue,
+                      color: CustomColors.persianBlue,
                       borderRadius: BorderRadius.all(Radius.circular(80))),
-                  child: const Text("Contatos",
+                  child: const Text("Projetos",
                       style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w700,

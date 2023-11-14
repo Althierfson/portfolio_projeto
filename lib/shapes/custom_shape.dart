@@ -4,7 +4,7 @@ class CustomShape extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = const Color(0xFF77C159)
+      ..color = const Color(0xFF2b2bd8)
       ..strokeWidth = 15;
 
     Offset center = Offset(size.width / 2, size.height / 2);

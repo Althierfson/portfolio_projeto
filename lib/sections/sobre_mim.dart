@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:portfolio_projeto/shapes/custom_shape.dart';
 
@@ -39,9 +40,10 @@ class SobreMim extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 "Sobre Mim",
-                style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
+                style: GoogleFonts.zenDots(
+                    fontSize: 42, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 30,
@@ -81,9 +83,10 @@ class SobreMim extends StatelessWidget {
           const SizedBox(
             width: 50,
           ),
-          const Text(
+          Text(
             "Sobre Mim",
-            style: TextStyle(fontSize: 48, fontWeight: FontWeight.w900),
+            style:
+                GoogleFonts.zenDots(fontSize: 48, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           const SizedBox(

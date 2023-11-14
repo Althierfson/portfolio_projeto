@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_projeto/check_dispositivo.dart';
 import 'package:portfolio_projeto/entidades/job.dart';
 
@@ -23,31 +24,26 @@ class _HabilidadesState extends State<Habilidades> {
   @override
   Widget build(BuildContext context) {
     if (CheckDispositivo.isMobile) {
-      return buildSectionToPhone(context);
+      return buildPhoneSection(context);
     } else {
-      return buildSection(context);
+      return buildSectionDesktop(context);
     }
   }
 
-  Container buildSection(BuildContext context) {
+  Container buildSectionDesktop(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
       width: MediaQuery.of(context).size.width,
-      color: const Color(0xFF77C159),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const Text(
+        Text(
           "Habilidades",
-          style: TextStyle(
-            fontSize: 48,
-            fontWeight: FontWeight.w900,
-            color: Colors.white,
-          ),
+          style: GoogleFonts.zenDots(fontSize: 40, color: Colors.black),
         ),
         const SizedBox(
           height: 50,
         ),
         const Text(
-          "Aqui estão algumas habilidaes e ferramentas que já tive experiência",
+          "Habilidaes e Ferramentas que Domino",
           style: TextStyle(fontSize: 20),
         ),
         const SizedBox(
@@ -55,48 +51,54 @@ class _HabilidadesState extends State<Habilidades> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selecionado >= 1 ? selecionado-- : selecionado;
-                });
-              },
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 100,
+            SizedBox(
+              width: 500.0,
+              height: 300.0,
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3, mainAxisExtent: 120.0),
+                  itemCount: habilidades.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selecionado = index;
+                        });
+                      },
+                      child: GridTile(
+                          child: Image.asset(
+                        habilidades[index].capaPath,
+                      )),
+                    );
+                  }),
+            ),
+            SizedBox(
+              width: 300.0,
+              child: Column(
+                children: [
+                  Text(
+                    habilidades[selecionado].titulo,
+                    style: GoogleFonts.zenDots(
+                        fontSize: 34, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    habilidades[selecionado].texto,
+                    style: const TextStyle(fontSize: 18.0),
+                  )
+                ],
               ),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            buildHabilidade(const Size(1920 * 0.20, 1080 * 0.20)),
-            const SizedBox(
-              width: 20,
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selecionado < habilidades.length - 1
-                      ? selecionado++
-                      : selecionado;
-                });
-              },
-              child: const Icon(
-                Icons.arrow_forward_ios,
-                size: 100,
-              ),
-            ),
+            )
           ],
         )
       ]),
     );
   }
 
-  Widget buildSectionToPhone(BuildContext context) {
+  Widget buildPhoneSection(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
-      color: const Color(0xFF77C159),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         const Text(
           "Habilidades",
