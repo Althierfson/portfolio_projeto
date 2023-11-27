@@ -49,7 +49,7 @@ class Contatos extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      launchUrl(Uri.parse("www.linkedin.com/in/althierfson"));
+                      launchUrl(Uri.parse("https://www.linkedin.com/in/althierfson/"));
                     },
                     child: Image.asset(
                       "assets/imagens/linkedin.png",
