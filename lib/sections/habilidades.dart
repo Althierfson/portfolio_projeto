@@ -43,7 +43,7 @@ class _HabilidadesState extends State<Habilidades> {
           height: 50,
         ),
         const Text(
-          "Habilidaes e Ferramentas que Domino",
+          "Habilidades e Ferramentas que Domino",
           style: TextStyle(fontSize: 20),
         ),
         const SizedBox(
@@ -100,60 +100,56 @@ class _HabilidadesState extends State<Habilidades> {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        const Text(
+        Text(
           "Habilidades",
-          style: TextStyle(
-            fontSize: 48,
-            fontWeight: FontWeight.w900,
-            color: Colors.white,
-          ),
+          style: GoogleFonts.zenDots(fontSize: 40, color: Colors.black),
         ),
         const SizedBox(
           height: 50,
         ),
         const Text(
-          "Aqui estão algumas habilidaes e ferramentas que já tive experiência",
+          "Habilidades e Ferramentas que Domino",
           style: TextStyle(fontSize: 20),
-          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 30,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selecionado >= 1 ? selecionado-- : selecionado;
-                });
-              },
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 50,
-              ),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            buildHabilidade(const Size(1920 * 0.10, 1080 * 0.10)),
-            const SizedBox(
-              width: 20,
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selecionado < habilidades.length - 1
-                      ? selecionado++
-                      : selecionado;
-                });
-              },
-              child: const Icon(
-                Icons.arrow_forward_ios,
-                size: 50,
-              ),
-            ),
-          ],
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: List.generate(
+                habilidades.length,
+                (index) => GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selecionado = index;
+                        });
+                      },
+                      child: Image.asset(
+                        habilidades[index].capaPath,
+                        height: 100,
+                      ),
+                    )),
+          ),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
+        Text(
+          habilidades[selecionado].titulo,
+          style: GoogleFonts.zenDots(fontSize: 30, color: Colors.black),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            habilidades[selecionado].texto,
+            style: const TextStyle(fontSize: 16),
+            textAlign: TextAlign.center,
+          ),
         )
       ]),
     );
@@ -180,7 +176,7 @@ class _HabilidadesState extends State<Habilidades> {
               style: const TextStyle(fontSize: 20),
               textAlign: TextAlign.center,
             ),
-          )
+          ),
         ],
       ),
     );

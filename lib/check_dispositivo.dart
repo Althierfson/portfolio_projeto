@@ -7,7 +7,8 @@ class CheckDispositivo {
   CheckDispositivo(BuildContext context) {
     if (defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS) {
-      if (MediaQueryData.fromWindow(WidgetsBinding.instance.window)
+      if (MediaQueryData.fromView(
+                  View.of(context).platformDispatcher.views.single)
               .size
               .shortestSide <
           600) {

@@ -8,7 +8,6 @@ import 'package:portfolio_projeto/sections/formacoes.dart';
 import 'package:portfolio_projeto/sections/habilidades.dart';
 import 'package:portfolio_projeto/sections/header.dart';
 import 'package:portfolio_projeto/sections/projetos.dart';
-import 'package:portfolio_projeto/sections/sobre_mim.dart';
 import 'package:portfolio_projeto/widgets/get_offset.dart';
 
 class PortfolioPage extends StatefulWidget {
@@ -26,11 +25,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
 
   final List<String> menu = <String>[
     "Home",
-    "Sobre Mim",
     "Projetos",
-    "Formações",
     "Habilidades",
-    "Contatos"
+    "Formações",
+    "Contato"
   ];
 
   List<Widget> children = [];
@@ -50,18 +48,14 @@ class _PortfolioPageState extends State<PortfolioPage> {
           scrollToIndex(5);
         },
       ),
-      const SobreMim(),
       Projetos(
           titulo: "Meus melhores projetos",
           jobs: readFonte(TiposDeProjeto.projetosTI)),
-      const Formacao(),
       Habilidades(
         habilidades: readFonte(TiposDeProjeto.habilidades),
       ),
+      const Formacao(),
       const Contatos(),
-      Projetos(
-          titulo: "Projetos fora da TI",
-          jobs: readFonte(TiposDeProjeto.outrosProjetos)),
       const Foot()
     ];
 
@@ -83,18 +77,13 @@ class _PortfolioPageState extends State<PortfolioPage> {
               },
               child: Header(
                 onContato: () {
-                  scrollToIndex(5);
+                  scrollToIndex(1);
                 },
               ),
             ),
-            /*GetOffset(
-                offSet: (offset) {
-                  offSetList[1] = offset.dy;
-                },
-                child: const SobreMim()),*/
             GetOffset(
               offSet: (offset) {
-                offSetList[2] = offset.dy;
+                offSetList[1] = offset.dy;
               },
               child: Projetos(
                   titulo: "Projetos",
@@ -102,7 +91,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
             ),
             GetOffset(
               offSet: (offset) {
-                offSetList[4] = offset.dy;
+                offSetList[2] = offset.dy;
               },
               child: Habilidades(
                 habilidades: readFonte(TiposDeProjeto.habilidades),
@@ -115,12 +104,9 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 child: const Formacao()),
             GetOffset(
                 offSet: (offset) {
-                  offSetList[5] = offset.dy;
+                  offSetList[4] = offset.dy;
                 },
                 child: const Contatos()),
-            /*Projetos(
-                titulo: "Projetos fora da TI",
-                jobs: readFonte(TiposDeProjeto.outrosProjetos)),*/
             const Foot()
           ],
         ),

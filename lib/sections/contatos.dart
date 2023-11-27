@@ -23,7 +23,7 @@ class Contatos extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Contatos",
+            "Contato",
             style:
                 GoogleFonts.zenDots(fontSize: 40, fontWeight: FontWeight.bold),
           ),

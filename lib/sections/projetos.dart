@@ -118,7 +118,7 @@ class _ProjetosState extends State<Projetos> {
   Widget buildPhoneSection(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
-      decoration: const BoxDecoration(color: Color(0xFF77C159)),
+      decoration: const BoxDecoration(color: Colors.white),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Text(
           widget.titulo,
@@ -128,34 +128,66 @@ class _ProjetosState extends State<Projetos> {
         const SizedBox(
           height: 50,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selecionado >= 1 ? selecionado-- : selecionado;
-                });
-              },
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 50,
-              ),
-            ),
-            projetoSelecionado(context, const Size(1920 * 0.10, 1080 * 0.10)),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selecionado < jobs.length - 1 ? selecionado++ : selecionado;
-                });
-              },
-              child: const Icon(
-                Icons.arrow_forward_ios,
-                size: 50,
-              ),
-            ),
-          ],
-        )
+        Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+                5,
+                (index) => Column(
+                      children: [
+                        Image.asset(
+                          jobs[index].capaPath,
+                          height: 200,
+                        ),
+                        Text(
+                          jobs[index].titulo,
+                          style: GoogleFonts.zenDots(
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text(
+                            jobs[index].texto,
+                            style: const TextStyle(fontSize: 16),
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          height: 1,
+                          width: 100,
+                          decoration: const BoxDecoration(color: Colors.black),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                              children: List.generate(
+                                  jobs[index].links.length,
+                                  (iLink) => Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    CustomColors.persianBlue),
+                                            onPressed: () {
+                                              launchUrl(Uri.parse(jobs[index]
+                                                  .links[iLink]
+                                                  .url));
+                                            },
+                                            child: Text(
+                                                jobs[index].links[iLink].nome)),
+                                      ))),
+                        ),
+                      ],
+                    ))),
       ]),
     );
   }

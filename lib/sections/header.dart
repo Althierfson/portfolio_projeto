@@ -22,13 +22,13 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     if (CheckDispositivo.isMobile) {
-      return buildSectionToPhone(context);
+      return buildPhoneSection(context);
     } else {
-      return buildSection();
+      return buildDesktopSection();
     }
   }
 
-  Widget buildSection() {
+  Widget buildDesktopSection() {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
       child: Row(
@@ -142,20 +142,11 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  Widget buildSectionToPhone(BuildContext context) {
+  Widget buildPhoneSection(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          color: Colors.black,
-          image: DecorationImage(
-            fit: BoxFit.fitHeight,
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.2), BlendMode.dstATop),
-            image: const AssetImage(
-              "assets/imagens/fundo_header.png",
-            ),
-          )),
+      decoration: const BoxDecoration(color: Colors.white),
       child: Column(
         children: [
           CustomPaint(
@@ -173,13 +164,26 @@ class _HeaderState extends State<Header> {
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            "Olá! Eu sou\nAlthierfson Tullio",
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.w900,
-              color: Colors.white,
+          Container(
+            padding: const EdgeInsets.fromLTRB(40.0, 8.0, 40.0, 8.0),
+            decoration: BoxDecoration(
+                color: CustomColors.persianBlue,
+                borderRadius: BorderRadius.circular(15.0)),
+            child: const Text(
+              "Olá Eu sou",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w900,
+                color: Colors.white,
+              ),
             ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "ALTHIERFSON TULLIO",
+            style: GoogleFonts.zenDots(fontSize: 32, color: Colors.black),
             textAlign: TextAlign.center,
           ),
           const SizedBox(
@@ -188,10 +192,19 @@ class _HeaderState extends State<Header> {
           const Text(
             "Desenvolvedor Mobile",
             style: TextStyle(
-                fontSize: 28, fontWeight: FontWeight.w500, color: Colors.white),
+                fontSize: 28, fontWeight: FontWeight.w500, color: Colors.black),
           ),
           const SizedBox(
             height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+                iconsList.length,
+                (index) => Image.asset(
+                      iconsList[index],
+                      height: 50,
+                    )),
           ),
           Stack(
             alignment: AlignmentDirectional.bottomStart,
@@ -221,15 +234,15 @@ class _HeaderState extends State<Header> {
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 10, bottom: 10),
               decoration: const BoxDecoration(
-                  color: Colors.blue,
+                  color: CustomColors.persianBlue,
                   borderRadius: BorderRadius.all(Radius.circular(80))),
-              child: const Text("Contatos",
+              child: const Text("Projetos",
                   style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.w700,
                       color: Colors.white)),
             ),
-          ),
+          )
         ],
       ),
     );

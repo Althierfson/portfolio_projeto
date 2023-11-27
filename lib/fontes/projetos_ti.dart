@@ -3,6 +3,19 @@ import 'package:portfolio_projeto/entidades/links.dart';
 
 List<Job> projetosTi = [
   Job(
+      titulo: "Bible Notes",
+      texto:
+          "Uma solução prática para organizar notas e comentários sobre passagens bíblicas.. O APP é Totalmente"
+          "integrado com Firebase para uma experiência intuitiva e segura. Autenticação, banco de dados Firestore "
+          "e armazenamento de imagens com o banco Storage do Firebas.",
+      capaPath: "assets/projetosTI/bible_notes/capa.png",
+      links: [
+        Link(
+            nome: "Play Store",
+            url:
+                "https://play.google.com/store/apps/details?id=com.cajuapps.biblenote")
+      ]),
+  Job(
       titulo: "PJe2x Mobile",
       texto:
           "O aplicativo PJe2x é uma ferramenta essencial para os magistrados do Tribunal Regional da 5ª Região, "
@@ -88,7 +101,6 @@ List<Job> projetosTi = [
             url:
                 "https://play.google.com/store/apps/details?id=com.cajugames.avistaouaprazo")
       ]),
-  
   Job(
       titulo: "Banco de Talentos Mobile",
       texto: """
