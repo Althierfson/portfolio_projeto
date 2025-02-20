@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_projeto/src/utils/check_dispositivo.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contatos extends StatelessWidget {
@@ -9,11 +7,14 @@ class Contatos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (CheckDispositivo.isMobile) {
-      return buildSection(const Size(60, 60));
-    } else {
-      return buildSection(const Size(150, 150));
-    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isMobile = constraints.maxWidth < 800;
+        return isMobile
+            ? buildSection(const Size(60, 60))
+            : buildSection(const Size(150, 150));
+      },
+    );
   }
 
   Container buildSection(Size size) {
@@ -24,8 +25,8 @@ class Contatos extends StatelessWidget {
         children: [
           Text(
             "Contato",
-            style:
-                GoogleFonts.zenDots(fontSize: 40, fontWeight: FontWeight.bold),
+            style: GoogleFonts.raleway(
+                fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           const SizedBox(
             height: 30,
@@ -35,21 +36,25 @@ class Contatos extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const Text(
+                  Text(
                     "Tem algum projeto para trabalharmos juntos?",
-                    style: TextStyle(fontSize: 18.0),
+                    style: GoogleFonts.raleway(
+                        fontSize: 18.0, color: Colors.white),
                   ),
-                  const Text(
-                    "althierfsonwork@gmail.com",
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  Text(
+                    "althierfson@gmail.com",
+                    style: GoogleFonts.raleway(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                   const SizedBox(
                     height: 10.0,
                   ),
                   GestureDetector(
                     onTap: () {
-                      launchUrl(Uri.parse("https://www.linkedin.com/in/althierfson/"));
+                      launchUrl(Uri.parse(
+                          "https://www.linkedin.com/in/althierfson/"));
                     },
                     child: Image.asset(
                       "assets/imagens/linkedin.png",

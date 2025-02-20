@@ -8,7 +8,7 @@ void main() {
     theme: ThemeData(
         scaffoldBackgroundColor: CustomColors.scaffoldBackgroundColor,
         appBarTheme:
-            const AppBarTheme(backgroundColor: CustomColors.persianBlue)),
+            const AppBarTheme(backgroundColor: CustomColors.appBarBackground)),
     home: const PortfolioPage(),
     debugShowCheckedModeBanner: false,
   ));

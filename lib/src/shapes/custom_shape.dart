@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_projeto/src/theme/custom_colors.dart';
 
 class CustomShape extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = const Color(0xFF2b2bd8)
+      ..color =  CustomColors.bottonBackGround
       ..strokeWidth = 15;
 
     Offset center = Offset(size.width / 2, size.height / 2);

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_projeto/src/theme/custom_colors.dart';
 import 'package:portfolio_projeto/src/utils/check_dispositivo.dart';
 
 class Formacao extends StatelessWidget {
@@ -6,11 +8,12 @@ class Formacao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (CheckDispositivo.isMobile) {
-      return buildSectionToPhone(context);
-    } else {
-      return buildSection(context);
-    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isMobile = constraints.maxWidth < 800;
+        return isMobile ? buildSectionToPhone(context) : buildSection(context);
+      },
+    );
   }
 
   Widget buildSection(BuildContext context) {
@@ -20,9 +23,12 @@ class Formacao extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               "Minhas Formações",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+              style: GoogleFonts.raleway(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
             ),
             const SizedBox(
               height: 30,
@@ -31,12 +37,12 @@ class Formacao extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 formacaoTile(
-                    "Bacharel Em ciência da Computação", "UERN - 2020"),
+                    "Bacharel Em ciência da Computação", "Universidade do Estado Do Rio Grande Do Norte - 2020"),
                 const SizedBox(
                   width: 20,
                 ),
                 formacaoTile(
-                    "Especialista em Tecnologia da Informação", "UFRN - 2023"),
+                    "Especialista em Tecnologia da Informação", "Universidade Federal do Rio Grande Do Norte - 2023"),
               ],
             )
           ]),
@@ -58,12 +64,12 @@ class Formacao extends StatelessWidget {
             height: 30,
           ),
           formacaoTileToPhone(
-              "Bacharel Em ciência da Computação", "UERN - 2020"),
+              "Bacharel Em ciência da Computação", "Universidade do Estado Do Rio Grande Do Norte - 2020"),
           const SizedBox(
             height: 20,
           ),
           formacaoTileToPhone(
-              "Especialista em Tecnologia da Informação", "UFRN - 2023"),
+              "Especialista em Tecnologia da Informação", "Universidade Federal do Rio Grande Do Norte - 2023"),
         ],
       ),
     );
@@ -72,10 +78,10 @@ class Formacao extends StatelessWidget {
   Widget formacaoTile(String form, String base) {
     return Row(
       children: [
-        const Icon(
+         Icon(
           Icons.school,
           size: 80,
-          color: Colors.black,
+          color: CustomColors.bottonBackGround
         ),
         const SizedBox(
           width: 20,
@@ -85,10 +91,11 @@ class Formacao extends StatelessWidget {
           children: [
             Text(
               form,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+              style:  GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w900, color: Colors.white),
             ),
             Text(
               base,
+              style:  GoogleFonts.raleway(color: Colors.white)
             )
           ],
         )

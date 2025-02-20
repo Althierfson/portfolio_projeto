@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio_projeto/src/utils/check_dispositivo.dart';
+import 'package:portfolio_projeto/src/theme/custom_colors.dart';
 import 'package:portfolio_projeto/src/entidades/job.dart';
+import 'package:portfolio_projeto/src/widgets/custom_progress_bar.dart';
 
 class Habilidades extends StatefulWidget {
   final List<Job> habilidades;
@@ -23,75 +24,92 @@ class _HabilidadesState extends State<Habilidades> {
 
   @override
   Widget build(BuildContext context) {
-    if (CheckDispositivo.isMobile) {
-      return buildPhoneSection(context);
-    } else {
-      return buildSectionDesktop(context);
-    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isMobile = constraints.maxWidth < 800;
+        return isMobile
+            ? buildPhoneSection(context)
+            : buildSectionDesktop(context);
+      },
+    );
   }
 
   Container buildSectionDesktop(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),
-      width: MediaQuery.of(context).size.width,
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text(
           "Habilidades",
-          style: GoogleFonts.zenDots(fontSize: 40, color: Colors.black),
+          style: GoogleFonts.raleway(fontSize: 40, color: Colors.white),
         ),
         const SizedBox(
           height: 50,
         ),
-        const Text(
+        Text(
           "Habilidades e Ferramentas que Domino",
-          style: TextStyle(fontSize: 20),
+          style: GoogleFonts.raleway(fontSize: 20, color: Colors.white),
         ),
         const SizedBox(
           height: 30,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 500.0,
-              height: 300.0,
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, mainAxisExtent: 120.0),
-                  itemCount: habilidades.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selecionado = index;
-                        });
-                      },
-                      child: GridTile(
-                          child: Image.asset(
-                        habilidades[index].capaPath,
-                      )),
-                    );
-                  }),
-            ),
-            SizedBox(
-              width: 300.0,
-              child: Column(
-                children: [
-                  Text(
-                    habilidades[selecionado].titulo,
-                    style: GoogleFonts.zenDots(
-                        fontSize: 34, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    habilidades[selecionado].texto,
-                    style: const TextStyle(fontSize: 18.0),
-                  )
-                ],
-              ),
-            )
-          ],
-        )
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.7,
+          child: GridView.builder(
+              shrinkWrap: true, 
+              physics:
+                  NeverScrollableScrollPhysics(), 
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisExtent: 100,
+                  crossAxisSpacing: 100),
+              itemCount: habilidades.length,
+              itemBuilder: (context, index) {
+                return Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: Image.asset(habilidades[index].capaPath)),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                        child: CustomProgressBar(
+                      percentage: 50,
+                      filledColor: CustomColors.bottonBackGround,
+                    ))
+                  ],
+                );
+              }),
+        ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     SizedBox(
+        //       width: MediaQuery.of(context).size.width * 0.7,
+        //       child: Column(
+        //         children: [
+        //           Text(
+        //             habilidades[selecionado].titulo,
+        //             style: GoogleFonts.raleway(
+        //                 fontSize: 34,
+        //                 fontWeight: FontWeight.bold,
+        //                 color: Colors.white),
+        //           ),
+        //           Text(
+        //             habilidades[selecionado].texto,
+        //             style: GoogleFonts.raleway(
+        //                 fontSize: 18.0, color: Colors.white),
+        //           )
+        //         ],
+        //       ),
+        //     )
+        //   ],
+        // )
       ]),
     );
   }
@@ -102,7 +120,7 @@ class _HabilidadesState extends State<Habilidades> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Text(
           "Habilidades",
-          style: GoogleFonts.zenDots(fontSize: 40, color: Colors.black),
+          style: GoogleFonts.zenDots(fontSize: 40, color: Colors.white),
         ),
         const SizedBox(
           height: 50,
