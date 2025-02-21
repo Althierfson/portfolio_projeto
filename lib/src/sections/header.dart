@@ -12,7 +12,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 800;
+        bool isMobile = constraints.maxWidth < 900;
         return isMobile ? buildMobileLayout() : buildDesktopLayout();
       },
     );
@@ -62,7 +62,7 @@ class Header extends StatelessWidget {
         SizedBox(
           width: 300,
           child: Text(
-            "Intro text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "Que software ou app vamos criar hoje para superar os de amanhã?",
             style: GoogleFonts.raleway(
               fontSize: 16,
               fontWeight: FontWeight.w500,

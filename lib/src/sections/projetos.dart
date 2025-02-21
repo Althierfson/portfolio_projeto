@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_projeto/src/entidades/links.dart';
 import 'package:portfolio_projeto/src/theme/custom_colors.dart';
 import 'package:portfolio_projeto/src/entidades/job.dart';
-import 'package:portfolio_projeto/projeto_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Projetos extends StatefulWidget {
@@ -31,7 +30,7 @@ class _ProjetosState extends State<Projetos> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 800;
+        bool isMobile = constraints.maxWidth < 900;
         return isMobile
             ? buildPhoneSection(context)
             : buildDesktopSection(context);
@@ -68,9 +67,11 @@ class _ProjetosState extends State<Projetos> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildFeatureProject(List.generate(5, (index) => "Flutter")),
                   _buildProjectTitle(jobs[index - 1].titulo),
-                  _buildProjectText(jobs[index - 1].texto, 500),
+                  _buildFeatureProject(jobs[index - 1].features,
+                      MediaQuery.of(context).size.width * 0.4),
+                  _buildProjectText(jobs[index - 1].texto,
+                      MediaQuery.of(context).size.width * 0.4),
                   _buildProjectActions(jobs[index - 1].links),
                 ],
               ),
@@ -113,14 +114,17 @@ class _ProjetosState extends State<Projetos> {
         Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-                5,
+                jobs.length < 5 ? jobs.length : 5,
                 (index) => Container(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Column(
                         children: [
                           _buildProjectImage(jobs[index].capaPath),
-                          _buildFeatureProject(
-                              List.generate(5, (index) => "Flutter")),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          _buildFeatureProject(jobs[index].features,
+                              MediaQuery.of(context).size.width * 0.9),
                           _buildProjectTitle(jobs[index].titulo),
                           _buildProjectText(jobs[index].texto,
                               MediaQuery.of(context).size.width * 0.9),
@@ -136,30 +140,25 @@ class _ProjetosState extends State<Projetos> {
   }
 
   Widget projetoSelecionado(BuildContext context, Size size) {
-    return GestureDetector(
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProjetoPage(projeto: jobs[selecionado]),
-              ));
-        },
-        child: Container(
-          width: size.width,
-          height: size.height,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(jobs[selecionado].capaPath))),
-        ));
+    return Container(
+      width: size.width,
+      height: size.height,
+      decoration: BoxDecoration(
+          image:
+              DecorationImage(image: AssetImage(jobs[selecionado].capaPath))),
+    );
   }
 
-  _buildFeatureProject(List<String> list) {
-    return Row(
-      children: List.generate(
-        list.length,
-        (index) => Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Container(
+  _buildFeatureProject(List<String> list, double size) {
+    return SizedBox(
+      width: size,
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 10,
+        runSpacing: 5,
+        children: List.generate(
+          list.length,
+          (index) => Container(
               padding: const EdgeInsets.only(left: 5, right: 5),
               decoration: BoxDecoration(
                   color: CustomColors.bottonBackGround,
@@ -224,10 +223,13 @@ class _ProjetosState extends State<Projetos> {
   }
 
   _buildProjectTitle(String titulo) {
-    return Text(
-      titulo,
-      style: GoogleFonts.raleway(
-          fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      child: Text(
+        titulo,
+        style: GoogleFonts.raleway(
+            fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+      ),
     );
   }
 }

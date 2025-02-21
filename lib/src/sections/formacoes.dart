@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_projeto/src/theme/custom_colors.dart';
-import 'package:portfolio_projeto/src/utils/check_dispositivo.dart';
 
 class Formacao extends StatelessWidget {
   const Formacao({super.key});
@@ -10,7 +9,7 @@ class Formacao extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 800;
+        bool isMobile = constraints.maxWidth < 1000;
         return isMobile ? buildSectionToPhone(context) : buildSection(context);
       },
     );
@@ -36,13 +35,13 @@ class Formacao extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                formacaoTile(
-                    "Bacharel Em ciência da Computação", "Universidade do Estado Do Rio Grande Do Norte - 2020"),
+                formacaoTile("Bacharel Em ciência da Computação",
+                    "Universidade do Estado Do Rio Grande Do Norte - 2020"),
                 const SizedBox(
                   width: 20,
                 ),
-                formacaoTile(
-                    "Especialista em Tecnologia da Informação", "Universidade Federal do Rio Grande Do Norte - 2023"),
+                formacaoTile("Especialista em Tecnologia da Informação",
+                    "Universidade Federal do Rio Grande Do Norte - 2023"),
               ],
             )
           ]),
@@ -51,25 +50,28 @@ class Formacao extends StatelessWidget {
 
   Widget buildSectionToPhone(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.only(top: 100, bottom: 100),
+      padding: const EdgeInsets.symmetric(vertical: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
-            "Minhas Formações",
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+          Text(
+            "Minhas\nFormações",
+            style: GoogleFonts.raleway(
+                fontSize: 40, fontWeight: FontWeight.w900, color: Colors.white),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(
             height: 30,
           ),
-          formacaoTileToPhone(
-              "Bacharel Em ciência da Computação", "Universidade do Estado Do Rio Grande Do Norte - 2020"),
+          formacaoTileToPhone(context, "Bacharel Em ciência da Computação",
+              "Universidade do Estado Do Rio Grande Do Norte - 2020"),
           const SizedBox(
             height: 20,
           ),
           formacaoTileToPhone(
-              "Especialista em Tecnologia da Informação", "Universidade Federal do Rio Grande Do Norte - 2023"),
+              context,
+              "Especialista em Tecnologia da Informação",
+              "Universidade Federal do Rio Grande Do Norte - 2023"),
         ],
       ),
     );
@@ -78,11 +80,7 @@ class Formacao extends StatelessWidget {
   Widget formacaoTile(String form, String base) {
     return Row(
       children: [
-         Icon(
-          Icons.school,
-          size: 80,
-          color: CustomColors.bottonBackGround
-        ),
+        Icon(Icons.school, size: 80, color: CustomColors.bottonBackGround),
         const SizedBox(
           width: 20,
         ),
@@ -91,31 +89,51 @@ class Formacao extends StatelessWidget {
           children: [
             Text(
               form,
-              style:  GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w900, color: Colors.white),
+              style: GoogleFonts.raleway(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
             ),
-            Text(
-              base,
-              style:  GoogleFonts.raleway(color: Colors.white)
-            )
+            Text(base, style: GoogleFonts.raleway(color: Colors.white))
           ],
         )
       ],
     );
   }
 
-  Widget formacaoTileToPhone(String form, String base) {
-    return ListTile(
-      leading: const Icon(
-        Icons.school,
-        size: 80,
-        color: Colors.black,
-      ),
-      title: Text(
-        form,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
-      ),
-      subtitle: Text(
-        base,
+  Widget formacaoTileToPhone(BuildContext context, String form, String base) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * .9,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.school,
+            size: 60,
+            color: CustomColors.bottonBackGround,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  form,
+                  style: GoogleFonts.raleway(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white),
+                ),
+                Text(
+                  base,
+                  style: GoogleFonts.raleway(color: Colors.white),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

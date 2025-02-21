@@ -15,6 +15,13 @@ class SobreMim extends StatelessWidget {
     }
   }
 
+  /// novas seções
+  /// sobre mim e minhas experiencias
+  /// experiencias igual a formação
+  /// adicionar mais skill
+  /// mudar o texto de apresentação
+  /// mudar os projetos
+
   Widget buildSection(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 100, bottom: 100),

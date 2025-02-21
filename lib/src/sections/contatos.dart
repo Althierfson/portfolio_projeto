@@ -9,7 +9,7 @@ class Contatos extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 800;
+        bool isMobile = constraints.maxWidth < 900;
         return isMobile
             ? buildSection(const Size(60, 60))
             : buildSection(const Size(150, 150));
@@ -37,11 +37,6 @@ class Contatos extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "Tem algum projeto para trabalharmos juntos?",
-                    style: GoogleFonts.raleway(
-                        fontSize: 18.0, color: Colors.white),
-                  ),
-                  Text(
                     "althierfson@gmail.com",
                     style: GoogleFonts.raleway(
                         fontSize: 18.0,
@@ -51,15 +46,46 @@ class Contatos extends StatelessWidget {
                   const SizedBox(
                     height: 10.0,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      launchUrl(Uri.parse(
-                          "https://www.linkedin.com/in/althierfson/"));
-                    },
-                    child: Image.asset(
-                      "assets/imagens/linkedin.png",
-                      height: 50.0,
-                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          launchUrl(Uri.parse(
+                              "https://www.linkedin.com/in/althierfson/"));
+                        },
+                        child: Image.asset(
+                          "assets/imagens/linkedin.png",
+                          height: 50.0,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          launchUrl(
+                              Uri.parse("https://github.com/Althierfson"));
+                        },
+                        child: Image.asset(
+                          "assets/imagens/github.png",
+                          height: 50.0,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          launchUrl(
+                              Uri.parse("https://www.youtube.com/@cajucode"));
+                        },
+                        child: Image.asset(
+                          "assets/imagens/youtube.png",
+                          height: 50.0,
+                        ),
+                      )
+                    ],
                   )
                 ],
               )

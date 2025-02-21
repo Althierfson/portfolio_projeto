@@ -6,11 +6,13 @@ class Job {
   final String capaPath;
   final List<String> assets;
   final List<Link> links;
+  final List<String> features;
 
   Job(
       {required this.titulo,
       required this.texto,
       required this.capaPath,
       this.assets = const <String>[],
-      this.links = const <Link>[]});
+      this.links = const <Link>[],
+      this.features = const []});
 }
