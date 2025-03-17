@@ -62,66 +62,63 @@ class _PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
     CheckDispositivo(context);
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 900;
-        return Scaffold(
-          appBar: isMobile ? buildAppBarToPhone() : buildAppBar(),
-          body: SingleChildScrollView(
-            controller: scrollController,
-            child: Column(
-              children: [
-                GetOffset(
-                  offSet: (offset) {
-                    offSetList[0] = offset.dy;
+    return LayoutBuilder(builder: (context, constraints) {
+      bool isMobile = constraints.maxWidth < 900;
+      return Scaffold(
+        appBar: isMobile ? buildAppBarToPhone() : buildAppBar(),
+        body: SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            children: [
+              GetOffset(
+                offSet: (offset) {
+                  offSetList[0] = offset.dy;
+                },
+                child: Header(
+                  onContato: () {
+                    scrollToIndex(1);
                   },
-                  child: Header(
-                    onContato: () {
-                      scrollToIndex(1);
-                    },
-                  ),
                 ),
-                GetOffset(
+              ),
+              GetOffset(
+                offSet: (offset) {
+                  offSetList[1] = offset.dy;
+                },
+                child: Projetos(titulo: "Projetos", jobs: projetosTi),
+              ),
+              GetOffset(
+                offSet: (offset) {
+                  offSetList[2] = offset.dy;
+                },
+                child: Habilidades(
+                  habilidades: habilidades,
+                ),
+              ),
+              GetOffset(
                   offSet: (offset) {
-                    offSetList[1] = offset.dy;
+                    offSetList[3] = offset.dy;
                   },
-                  child: Projetos(titulo: "Projetos", jobs: projetosTi),
-                ),
-                GetOffset(
+                  child: Experiencia(exps: experiencias)),
+              GetOffset(
                   offSet: (offset) {
-                    offSetList[2] = offset.dy;
+                    offSetList[4] = offset.dy;
                   },
-                  child: Habilidades(
-                    habilidades: habilidades,
-                  ),
-                ),
-                GetOffset(
-                    offSet: (offset) {
-                      offSetList[3] = offset.dy;
-                    },
-                    child: Experiencia(exps: experiencias)),
-                GetOffset(
-                    offSet: (offset) {
-                      offSetList[4] = offset.dy;
-                    },
-                    child: const Formacao()),
-                GetOffset(
-                    offSet: (offset) {
-                      offSetList[5] = offset.dy;
-                    },
-                    child: const Contatos()),
-                const Foot()
-              ],
-            ),
+                  child: const Formacao()),
+              GetOffset(
+                  offSet: (offset) {
+                    offSetList[5] = offset.dy;
+                  },
+                  child: const Contatos()),
+              const Foot()
+            ],
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 
   AppBar buildAppBar() {
     return AppBar(
-      actionsPadding: EdgeInsets.only(right: 20),
       actions: List.generate(menu.length, (index) {
         return TextButton(
           onPressed: () {
@@ -129,7 +126,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           },
           child: Text(
             menu[index],
-            style:  GoogleFonts.raleway(color: Colors.white, fontSize: 18),
+            style: GoogleFonts.raleway(color: Colors.white, fontSize: 18),
           ),
         );
       }),
@@ -158,7 +155,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
 
   void scrollToIndex(int index) {
     scrollController.animateTo(offSetList[index],
-        duration: const Duration(seconds: 2),
-        curve: Curves.fastLinearToSlowEaseIn);
+        duration: const Duration(seconds: 2), curve: Curves.fastLinearToSlowEaseIn);
   }
 }
